@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "assert": "^2.1.0"
-  },
-  "devDependencies": {
-    "@types/assert": "^1.5.10"
-  }
-}

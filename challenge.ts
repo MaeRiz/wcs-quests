@@ -1,29 +1,27 @@
-import  assert  from  'assert';
-
-class BankCustomer {
+class Person {
 
   private name: string;
-  private pin: string;
+  private age: number;
 
-  constructor(name: string, pin: string) {
-    this.name = name
-    this.pin = pin
+  constructor(name: string, age: number){
+    this.name = name;
+    this.age = age;
   }
 
-  public getName(): string {
-    return this.name
+  tellMyName(): void {
+    console.log(`I am ${this.name}`);
   }
 
-  public verifyPinInput(inputPin: string): boolean {
-    return (inputPin = this.pin) ? true : false
+  tellMyAge(): void {
+    console.log(`I am ${this.age} years old`);
   }
 
 }
 
-// Tests
+const person1 = new Person("John", 40)
+const person2 = new Person("Mary", 35)
 
-const customer = new BankCustomer('John Doe', '3579');
-assert.equal(typeof customer.getName, 'function');
-assert.equal(typeof customer.verifyPinInput, 'function');
-assert.equal(customer.getName(), 'John Doe');
-assert.ok(customer.verifyPinInput('3579'));
+person1.tellMyName()
+person1.tellMyAge()
+person2.tellMyName()
+person2.tellMyAge()
