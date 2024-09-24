@@ -1,20 +1,29 @@
-interface User {
-    name: string;
-    age?: number,
-    birthday?: string;
+import  assert  from  'assert';
+
+class BankCustomer {
+
+  private name: string;
+  private pin: string;
+
+  constructor(name: string, pin: string) {
+    this.name = name
+    this.pin = pin
+  }
+
+  public getName(): string {
+    return this.name
+  }
+
+  public verifyPinInput(inputPin: string): boolean {
+    return (inputPin = this.pin) ? true : false
+  }
+
 }
 
-const prettyPrintWilder = (users: User[]): void => {
-    users.map((user) => {
-      console.log(`${user.name} is ${user.age} years old`);
-    });
-  };
-  
-  const wilders: User[] = [];
-  const user1: User = { name: "Pierre", age: 23 };
-  const user2: User = { name: "Paul", birthday: "10/02/1990" };
-  const user3: User = { name: "Jacques", age: 25 };
-  wilders.push(user1);
-  wilders.push(user2);
-  wilders.push(user3);
-  prettyPrintWilder(wilders);
+// Tests
+
+const customer = new BankCustomer('John Doe', '3579');
+assert.equal(typeof customer.getName, 'function');
+assert.equal(typeof customer.verifyPinInput, 'function');
+assert.equal(customer.getName(), 'John Doe');
+assert.ok(customer.verifyPinInput('3579'));
